@@ -5,14 +5,22 @@ import MyButton from "../../components/ui/MyButton";
 import Colors from "../../../constants/Colors";
 import EmailIconSvg from "../../../assets/icons/EmailIcon";
 import MyText from "../../components/ui/MyText";
+import { useContext } from "react";
+import { AuthContext } from "../../store/Auth-context";
 
 const LoginOverview = () => {
+  const authCtx = useContext(AuthContext);
+
+  const onSkipAuth = () => {
+    authCtx.skipAuthentication();
+  };
+
   return (
-    <View
-      style={{ flex: 1, marginVertical: 40, justifyContent: "space-between" }}
-    >
-      <Image source={require("../../../assets/login_overview.png")} />
-      <View style={{ gap: 18 }}>
+    <View style={styles.container}>
+      <View style={{ justifyContent: "center", alignItems: "center" }}>
+        <Image source={require("../../../assets/login_overview.png")} />
+      </View>
+      <View style={{ gap: 18, marginHorizontal: 16 }}>
         <LinearGradient
           colors={["#F06100", "#F04900", "#F03000", "#F00030", "#F0006D"]}
           style={styles.createBtnContainer}
@@ -48,7 +56,7 @@ const LoginOverview = () => {
           </MyText>
         </MyText>
 
-        <MyButton onPress={() => {}}>
+        <MyButton onPress={onSkipAuth}>
           <MyText style={styles.signUpLaterText}>Sign up later</MyText>
         </MyButton>
 
@@ -64,6 +72,11 @@ const LoginOverview = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "space-between",
+    backgroundColor: Colors.white,
+  },
   createBtnContainer: {
     height: 40,
     paddingVertical: 4,

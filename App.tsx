@@ -1,24 +1,23 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+
 import AuthContextProvider from "./app/store/Auth-context";
-import LoginOverview from "./app/screens/login/Overview";
+import Routes from "./app/routes";
 
 export default function App() {
   return (
-    <AuthContextProvider>
-      <View style={styles.container}>
-        <LoginOverview />
+    <SafeAreaView style={styles.container}>
+      <AuthContextProvider>
         <StatusBar style="auto" />
-      </View>
-    </AuthContextProvider>
+        <Routes />
+      </AuthContextProvider>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
