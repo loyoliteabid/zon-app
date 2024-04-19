@@ -7,6 +7,8 @@ import { Category } from "../../definitions/DataTypes";
 import Colors from "../../../constants/Colors";
 import { staticShowRooms } from "../../data/seed";
 import MyButton from "../../components/ui/MyButton";
+import { useNavigation } from "@react-navigation/native";
+import { ScreenNavigationProp } from "../../definitions/RouteModel";
 
 const localImagePaths: { [key: string]: any } = {
   motors: require("../../../assets/motors.png"),
@@ -25,6 +27,8 @@ const HomeScreen = () => {
 
   // custom hook
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
+
+  const navigation = useNavigation<ScreenNavigationProp>();
 
   useEffect(() => {
     const onLoad = async () => {
@@ -46,7 +50,10 @@ const HomeScreen = () => {
           <Pressable
             style={styles.categoryItem}
             onPress={() => {
-              // navigation.navigate('manageExpense', { expenseId: item.id });
+              navigation.navigate("ProductList", {
+                categoryId: item.id,
+                categoryName: item.name,
+              });
             }}
           >
             <View style={{ width: 80 }}>
@@ -57,6 +64,7 @@ const HomeScreen = () => {
         )}
         numColumns={3}
         keyExtractor={(item) => item.id}
+        contentContainerStyle={{ margin: 5 }}
       />
 
       {isLoading && (
@@ -128,6 +136,7 @@ const styles = StyleSheet.create({
     borderColor: Colors.gray_100,
     borderWidth: 1,
     marginVertical: 16,
+    marginHorizontal: 5,
   },
   showRoomContainer: {
     flexDirection: "row",
