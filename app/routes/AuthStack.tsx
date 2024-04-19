@@ -11,7 +11,7 @@ const AuthStack = () => {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="overview" component={LoginOverview} />
+      <Stack.Screen name="Overview" component={LoginOverview} />
     </Stack.Navigator>
   );
 };
