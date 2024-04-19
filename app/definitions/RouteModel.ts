@@ -15,12 +15,14 @@ export type RootStackParamList = {
   Overview: undefined;
   HomeOverview: undefined;
   ProductList: {
-    categoryId: string | undefined;
-    categoryName: string | undefined;
+    categoryId?: string;
+    categoryName?: string;
+    type?: string;
   };
   ProductView: {
-    productId: string | undefined;
-    productName: string | undefined;
+    productId?: string;
+    productName?: string;
+    type?: string;
   };
 };
 
