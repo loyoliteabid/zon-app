@@ -14,6 +14,8 @@ Doing so will result in incorrect type checking where it allows you to pass inco
 // refer https://reactnavigation.org/docs/typescript/
 export type RootStackParamList = {
   Overview: undefined;
+  Register: undefined;
+  Login: undefined;
   HomeOverview: undefined;
   ProductList: {
     categoryId?: string;

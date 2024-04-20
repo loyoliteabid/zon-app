@@ -1,7 +1,10 @@
 import { ReactNode, createContext, useState } from "react";
+import { User } from "../definitions/DataTypes";
 
 type ContextValue = {
   token: string | null;
+  user: User;
+  setUser: (u: User) => void;
   isAuthenticated: boolean;
   skipAuth: boolean;
   authenticate: (token: string) => void;
@@ -11,8 +14,10 @@ type ContextValue = {
 
 export const AuthContext = createContext<ContextValue>({
   token: null,
+  user: null,
   isAuthenticated: false,
   skipAuth: false,
+  setUser: () => {},
   authenticate: (token: string) => {},
   skipAuthentication: () => {},
   logout: () => {},
@@ -20,6 +25,7 @@ export const AuthContext = createContext<ContextValue>({
 
 function AuthContextProvider({ children }: { children: ReactNode }) {
   const [authToken, setAuthToken] = useState<string | null>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [skipAuth, setSkipAuth] = useState(false);
 
   function authenticate(token: string) {
@@ -41,6 +47,8 @@ function AuthContextProvider({ children }: { children: ReactNode }) {
     authenticate,
     skipAuthentication,
     logout,
+    user,
+    setUser,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

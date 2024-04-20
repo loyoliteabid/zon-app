@@ -1,11 +1,12 @@
-import { StyleSheet, View } from "react-native";
+import { Dimensions, StyleSheet, View } from "react-native";
 
 import { Category } from "../../definitions/DataTypes";
 import CategoryItem from "./CategoryItem";
 import MyText from "../ui/MyText";
 import Colors from "../../../constants/Colors";
-import MyButton from "../ui/MyButton";
 import HttpError from "../shared/HttpError";
+
+const screenHeight = Dimensions.get("window").height;
 
 const CategoryList = ({
   categories,
@@ -55,6 +56,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: Colors.white,
+    minHeight: screenHeight * 0.5,
   },
   categoryContainer: {
     flexWrap: "wrap",

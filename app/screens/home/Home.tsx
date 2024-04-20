@@ -25,11 +25,15 @@ const HomeScreen = () => {
 
   useEffect(() => {
     const onLoad = async () => {
-      const { data } = (await sendRequest("/categories")) as {
-        data: Category[];
-      };
+      try {
+        const { data } = (await sendRequest("/categories")) as {
+          data: Category[];
+        };
 
-      setCategories(data ?? []);
+        setCategories(data ?? []);
+      } catch (error) {
+        //
+      }
     };
     onLoad();
   }, [sendRequest]);

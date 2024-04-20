@@ -22,6 +22,7 @@ export const sendRequestEx = async (
 
     return responseData;
   } catch (err: any) {
+    console.log("Error happened at sendRequestEx", JSON.stringify(err));
     throw err;
   }
 };
