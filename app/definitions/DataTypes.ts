@@ -48,3 +48,15 @@ export interface Product {
   targetMarket?: string;
   tags?: string[];
 }
+
+export interface UserData {
+  userId: string;
+  userName: string;
+  email: string;
+}
+
+export type User = UserData | null;
+
+export interface AuthResponse extends UserData {
+  token: string;
+}

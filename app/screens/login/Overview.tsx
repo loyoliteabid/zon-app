@@ -7,6 +7,8 @@ import EmailIconSvg from "../../../assets/icons/EmailIcon";
 import MyText from "../../components/ui/MyText";
 import { useContext } from "react";
 import { AuthContext } from "../../store/Auth-context";
+import { useNavigation } from "@react-navigation/native";
+import { ScreenNavigationProp } from "../../definitions/RouteModel";
 
 const LoginOverview = () => {
   const authCtx = useContext(AuthContext);
@@ -14,6 +16,8 @@ const LoginOverview = () => {
   const onSkipAuth = () => {
     authCtx.skipAuthentication();
   };
+
+  const navigation = useNavigation<ScreenNavigationProp>();
 
   return (
     <View style={styles.container}>
@@ -25,13 +29,19 @@ const LoginOverview = () => {
           colors={["#F06100", "#F04900", "#F03000", "#F00030", "#F0006D"]}
           style={styles.createBtnContainer}
         >
-          <MyButton onPress={() => {}}>
+          <MyButton
+            onPress={() => {
+              navigation.navigate("Register");
+            }}
+          >
             <MyText style={styles.primaryBtnTexxt}>Create new Account</MyText>
           </MyButton>
         </LinearGradient>
 
         <MyButton
-          onPress={() => {}}
+          onPress={() => {
+            navigation.navigate("Login");
+          }}
           containerStyle={[styles.createBtnContainer, styles.emailBtnContainer]}
         >
           <View style={{ flexDirection: "row", gap: 12 }}>

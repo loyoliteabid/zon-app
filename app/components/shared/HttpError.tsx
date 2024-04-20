@@ -14,7 +14,7 @@ const HttpError = ({
   additionalMsg?: string;
 }) => {
   return (
-    <View>
+    <View style={styles.container}>
       <MyText style={{ color: Colors.danger_500 }}>{errMsg}</MyText>
       <MyText style={{ color: Colors.gray_900 }}>{additionalMsg}</MyText>
       <MyButton onPress={clearError} containerStyle={styles.errOkBtn}>
@@ -25,6 +25,11 @@ const HttpError = ({
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
   errOkBtn: {
     margin: 10,
     paddingVertical: 5,

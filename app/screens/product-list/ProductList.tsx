@@ -37,13 +37,15 @@ const ProductList = () => {
 
   useEffect(() => {
     const onLoad = async () => {
-      const { data } = (await sendRequest(
-        `/products?categoryId=${categoryId}`
-      )) as {
-        data: Product[];
-      };
+      try {
+        const { data } = (await sendRequest(
+          `/products?categoryId=${categoryId}`
+        )) as {
+          data: Product[];
+        };
 
-      setProducts(data ?? []);
+        setProducts(data ?? []);
+      } catch (error) {}
     };
     onLoad();
   }, [sendRequest, categoryId]);
