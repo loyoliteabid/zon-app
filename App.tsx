@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import AuthContextProvider from "./app/store/Auth-context";
-import Routes from "./app/routes";
+import Routes from "./app/routes/Routes";
 
 export default function App() {
   return (

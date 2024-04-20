@@ -9,5 +9,6 @@ export default {
   gray_900: "#101828",
   gray_600: "#475467",
   gray_700: "#344054",
+  danger_10: "#FFEEED",
   danger_500: "#F04438",
 };
