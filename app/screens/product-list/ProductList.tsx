@@ -69,8 +69,7 @@ const ProductList = () => {
           products={products}
           onPressProductListItem={(product) => {
             navigation.navigate("ProductView", {
-              productId: product.id,
-              productName: product.name,
+              product: product,
               type,
             });
           }}

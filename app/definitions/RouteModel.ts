@@ -1,6 +1,7 @@
 import type { CompositeNavigationProp } from "@react-navigation/native";
 import type { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { Product } from "./DataTypes";
 
 /*
 Note: The type containing the mappings must be a type alias
@@ -20,8 +21,7 @@ export type RootStackParamList = {
     type?: string;
   };
   ProductView: {
-    productId?: string;
-    productName?: string;
+    product?: Product;
     type?: string;
   };
 };
