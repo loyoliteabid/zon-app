@@ -1,4 +1,4 @@
-import { REACT_APP_SERVER_URL } from "../../configs";
+import { REACT_APP_SERVER_URL } from "../../configs/Configs";
 import { HttpMethod } from "../definitions/DataTypes";
 
 export const sendRequestEx = async (
